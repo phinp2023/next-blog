@@ -17,6 +17,33 @@
     background-color: var(--textColor);
 }
 
+.closeMenu {
+    display: none;
+    position: relative;
+    width: 20px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.closeMenu:before,
+.closeMenu:after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    content: ' ';
+    height: 20px;
+    width: 3px;
+    background-color: var(--textColor);
+}
+
+.closeMenu:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.closeMenu:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 .responsiveMenu {
     position: absolute;
     top: 100px;
@@ -24,7 +51,7 @@
     background-color: var(--bg);
     height: calc((100vh - 100px));
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -34,6 +61,14 @@
 
 @media screen and (max-width: 640px) {
     .burger {
+        display: flex;
+    }
+
+    .closeMenu {
+        display: block;
+    }
+
+    .responsiveMenu {
         display: flex;
     }
 
